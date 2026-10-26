@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:stylish/views/login_screen.dart';
 import 'package:stylish/views/splash_screen.dart';
-import 'package:stylish/views/starter_screen_one.dart';
+import 'package:stylish/views/starter_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: StarterScreenOne(),
+      home: LoginScreen(),
     );
   }
 }

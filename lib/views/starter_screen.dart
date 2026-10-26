@@ -3,14 +3,14 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class StarterScreenOne extends StatefulWidget {
-  const StarterScreenOne({super.key});
+class StarterScreen extends StatefulWidget {
+  const StarterScreen({super.key});
 
   @override
-  State<StarterScreenOne> createState() => _StarterScreenOneState();
+  State<StarterScreen> createState() => _StarterScreenOneState();
 }
 
-class _StarterScreenOneState extends State<StarterScreenOne> {
+class _StarterScreenOneState extends State<StarterScreen> {
   final PageController _pageController = PageController();
   late int _currentPage = 0;
 
