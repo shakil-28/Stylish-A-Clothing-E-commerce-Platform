@@ -1,17 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:stylish/views/components/primary_button.dart';
+import 'package:stylish/views/components/text_input_field.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  final TextInputField _emailField = TextInputField(
+    prefixIcon: Icon(Icons.person),
+    hintText: 'Username or Email',
+    textInputAction: TextInputAction.next,
+  );
+  final TextInputField _passwordField = TextInputField(
+    prefixIcon: Icon(Icons.lock),
+    hintText: 'Password',
+    textInputAction: TextInputAction.done,
+  );
+  final PrimaryButton _loginButton = PrimaryButton();
+
+  LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.all(28),
+        padding: const EdgeInsets.fromLTRB(28, 100, 28, 0),
         child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Align(
@@ -38,44 +51,50 @@ class LoginScreen extends StatelessWidget {
                   ]
                 ),
               ),
+
               SizedBox(height: 36,),
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: 'Username or Email',
-                  filled: true,
-                  fillColor: Color(0xffF3F3F3),
-                  prefixIcon: Padding(
-                    padding: EdgeInsets.only(left: 11, right: 3),
-                    child: Icon(Icons.person),
+              _emailField,
+              SizedBox(height: 31,),
+              _passwordField,
+              SizedBox(height: 9,),
+
+              // forget password text button implementation
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed: () => {
+                    print('Forgot Password')
+                  },
+                  style: ButtonStyle(
+                    splashFactory: NoSplash.splashFactory,
+                    overlayColor: WidgetStatePropertyAll(Colors.transparent),
+                    padding: WidgetStatePropertyAll(EdgeInsets.zero),
+                    minimumSize: WidgetStatePropertyAll(Size.zero),
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   ),
-                  prefixIconConstraints: BoxConstraints(
-                    minWidth: 24,
-                    minHeight: 24,
-                  ),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(
-                      color: Color(0xffA8A8A9),
-                    )
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(
-                        color: Color(0xffA8A8A9),
-                      )
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(
-                        color: Color(0xffA8A8A9),
-                      )
+                  child: Text('Forgot Password?',
+                    style: GoogleFonts.montserrat(
+                      color: Color(0xffF83758),
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                 ),
+              ),
+              SizedBox(height: 52,),
+              _loginButton,
+              SizedBox(height: 75,),
+              Container(
+                width: double.infinity,
+                height: 138,
+                color: Colors.amber,
               )
+
+
             ],
           )
       ),
     );
   }
+
 }
