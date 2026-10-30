@@ -4,12 +4,14 @@ class TextInputField extends StatelessWidget {
   final Icon _prefixIcon;
   final String _hintText;
   final TextInputAction? _textInputAction;
+  final bool _obscureText;
 
   const TextInputField(
     {
       super.key,
       required this._prefixIcon,
       required this._hintText,
+      required this._obscureText,
       this._textInputAction,
     }
   );
@@ -18,7 +20,7 @@ class TextInputField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       textInputAction: _textInputAction,
-      obscureText: _hintText == 'Password' ? true : false,
+      obscureText: _obscureText,
         decoration: InputDecoration(
           hintText: _hintText,
           filled: true,
@@ -31,7 +33,7 @@ class TextInputField extends StatelessWidget {
             minWidth: 24,
             minHeight: 24,
           ),
-          suffixIcon: _hintText == 'Password'? Icon(Icons.visibility_off, color: Color(0xffA8A8A9),) : SizedBox.shrink(),
+          suffixIcon: _obscureText ? Icon(Icons.visibility_off, color: Color(0xffA8A8A9),) : SizedBox.shrink(),
           contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),

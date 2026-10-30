@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PrimaryButton extends StatelessWidget {
-  const PrimaryButton({super.key});
+  final String _buttonText;
+  const PrimaryButton({
+    super.key,
+    required this._buttonText,
+  });
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +24,7 @@ class PrimaryButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(4),
           ),
         ),
-        child: Text('Login',
+        child: Text(_buttonText,
           style: GoogleFonts.montserrat(
             color: Color(0xffFFFFFF),
             fontSize: 20,

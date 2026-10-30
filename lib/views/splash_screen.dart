@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
 
           children: [
-            SvgPicture.asset('assets/logo.svg'),
+            SvgPicture.asset('assets/logo/logo.svg'),
             SizedBox(width: 9),
             Text('Stylish',
               style: GoogleFonts.libreCaslonText(

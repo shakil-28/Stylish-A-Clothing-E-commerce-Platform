@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:stylish/views/forget_password.dart';
 import 'package:stylish/views/login_screen.dart';
+import 'package:stylish/views/signup_screen.dart';
 import 'package:stylish/views/splash_screen.dart';
 import 'package:stylish/views/starter_screen.dart';
 
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: LoginScreen(),
+      home: ForgetPassword(),
     );
   }
 }
